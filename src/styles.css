@@ -1,0 +1,211 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* html, body { height: 100%; } */
+html {
+    transition: color 300ms, background-color 300ms, filter 300ms;
+}
+/* html.dark-mode {
+    filter: invert(95%) hue-rotate(180deg);
+} */
+/* https://jsfiddle.net/vrbq1gf3/1/ */
+html[data-theme='dark'] {
+    /* background: rgb(41, 41, 41);
+    color: rgb(238, 203, 3); */
+    /* background-color: rgb(41, 41, 41); */
+    filter: invert(95%) hue-rotate(180deg)
+}
+
+html[data-theme='dark'] img {
+  filter: invert(95%) hue-rotate(180deg)
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* .mat-button:hover {
+    color: $white;
+    background: $white;
+} */
+
+#hero {
+    background-size: cover;
+    background-position-x: center;
+    /* background-color: #67cae1;
+    background-image: linear-gradient(225deg,#67cae1,#7bd5d7); */
+    /* background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
+    /* https://cssgradient.io/ */
+    background: rgb(255,77,33);
+    background: linear-gradient(90deg, rgba(255,77,33,1) 0%, rgba(252,176,69,1) 100%);
+    /* background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); */
+}
+
+#services {
+    background: url(./assets/undraw_File_searching_re_3evy.svg);
+    background-position: right 20px bottom 10px;
+    background-repeat: no-repeat;
+    /* background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
+}
+
+textarea {
+    font-size: 1.5em !important;
+}
+
+#hero .navbar.is-transparent {
+    background-color: transparent;
+}
+
+.service-buttons {
+    justify-content: center !important;
+}
+
+.logos::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 0;
+    border-top: 1px solid #ebebeb;
+}
+
+#contact {
+    /* background: url();
+    background-size: cover; */
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+@media screen and (max-width: 1023px) {
+    .navbar-menu a.has-text-white {
+        color: #4a4a4a !important;
+    }
+    .navbar-menu a.has-text-white:hover {
+        color: #3273dc !important;
+    }
+}
+
+@keyframes bdSlowln {
+    0% { 
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.slidein {
+    -webkit-animation: slidein 1s 1 ease-out; /* Safari 4+ */
+    -moz-animation:    slidein 1s 1 ease-out; /* Fx 5+ */
+    -o-animation:      slidein 1s 1 ease-out; /* Opera 12+ */
+    animation:         slidein 1s 1 ease-out; /* IE 10+, Fx 29+ */
+}
+@keyframes slidein {
+    from {
+      transform: translateX(-150%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+.slideout {
+    -webkit-animation: slideout 1s 1 ease-out; /* Safari 4+ */
+    -moz-animation:    slideout 1s 1 ease-out; /* Fx 5+ */
+    -o-animation:      slideout 1s 1 ease-out; /* Opera 12+ */
+    animation:         slideout 1s 1 ease-out; /* IE 10+, Fx 29+ */
+}
+@keyframes slideout {
+    from {
+        opacity: 0;
+        transform: translateX(+150%);
+    }
+  
+    to {
+        opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+
+.slidedown {
+    opacity: 0;
+    -webkit-animation: slidedown 0.5s 1 ease-out forwards; /* Safari 4+ */
+    -moz-animation:    slidedown 0.5s 1 ease-out forwards; /* Fx 5+ */
+    -o-animation:      slidedown 0.5s 1 ease-out forwards; /* Opera 12+ */
+    animation:         slidedown 0.5s 1 ease-out forwards; /* IE 10+, Fx 29+ */
+}
+@keyframes slidedown {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+  
+    to {
+        opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+.slideup {
+    opacity: 0;
+    -webkit-animation: slideup 1s 0.5s 1 ease-out forwards; /* Safari 4+ */
+    -moz-animation:    slideup 1s 0.5s 1 ease-out forwards; /* Fx 5+ */
+    -o-animation:      slideup 1s 0.5s 1 ease-out forwards; /* Opera 12+ */
+    animation:         slideup 1s 0.5s 1 ease-out forwards; /* IE 10+, Fx 29+ */
+}
+@keyframes slideup {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+  
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+  }
+
+
+.btn-grad {background-image: linear-gradient(to right, #FF512F 0%, #DD2476  51%, #FF512F  100%)}
+.btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+  
+/* @keyframes box {
+    0% {
+      opacity: 0;
+      transform: translateY(8px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+} */
+
+@keyframes box {
+    0% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
