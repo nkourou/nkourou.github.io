@@ -1,1 +1,188 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="./src/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <!-- Inspiration https://twitter.com/GoodMarketingHQ/status/1338822201773056000?s=20  -->
+</head>
+<body>
+    <section id="hero" class="hero is-fullheight">
+        <div class="hero-head">
+            <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                  <a class="navbar-item" href="https://bulma.io">
+                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                  </a>
+              
+                  <a role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+                </div>
+              
+                <div id="navbarBasicExample" class="navbar-menu">
+                  <div class="navbar-start">
+                  </div>
+              
+                  <div class="navbar-end">
+                    <div class="navbar-item">
+                      <div class="buttons">
+                        <a class="button is-outlined is-info is-inverted">
+                          <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-light">
+                          Log in
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </nav>  
+        </div>
+        <div class="hero-body">
+            <div class="container">  
+            <div class="columns pt-6">
+                <div class="column mt-6">
+                    <span class="icon has-text-warning">
+                        <i class="far fa-chart-bar fa-lg"></i>
+                    </span>
+                    <h1 class="is-size-1 has-text-white has-text-weight-semibold slidedown">
+                        Improve your IELTS writing scores
+                    </h1>
+                    <p class="has-text-white slideup">
+                        Lost in writing task's dos and donts ? <br> Let NLP help you find gaps and improve with practice!
+                    </p>
+                    <button class="button is-warning mt-4 slideup">
+                        Get started now!
+                    </button>
+                </div>
+                <div class="column mt-6">
+                    <img src="./src/assets/undraw_Master_plan_re_jvit.svg" alt="Lost for ideas!">
+                </div>
+            </div>       
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="title is-2">Lost in writing task's dos and donts ?</h2>
+                <h6 class="subtitle has-text-grey is-6">
+                    Let NLP help you find gaps and improve with practice!
+                </h6>
+            </div>
+            <div class="columns pt-6">
+                <div class="column">
+                    <div class="card slidein">
+                        <div class="card-image">
+                            <figure class="image">
+                              <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-4">Text statistics</p>
+                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ad nostrum eveniet esse saepe!</div>
+                        </div>
+                        <!-- <footer class="card-footer">
+                            <a href="" class="card-footer-item">See in action!</a>
+                        </footer> -->
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card slideout">
+                        <div class="card-image">
+                            <figure class="image">
+                              <img src="./src/assets/undraw_fixing_bugs_w7gi.svg" alt="Fixing bugs">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-4">Precision nudging</p>
+                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                        </div>
+                        <!-- <footer class="card-footer">
+                            <a href="" class="card-footer-item">See in action!</a>
+                        </footer> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="field is-grouped mt-6 is-flex service-buttons">
+                <p class="control"><button class="button is-warning">Start is out!</button></p>
+                <p class="control"><button class="button is-info">Cool cool</button></p>
+            </div>
+            <div class="columns mt-6 pt-5 logos is-relative">
+                <div class="column">
+                    <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="File searching">
+                </div>
+                <div class="column">
+                    <img src="./src/assets/undraw_fixing_bugs_w7gi.svg" alt="File searching">
+                </div>
+                <div class="column">
+                    <img src="./src/assets/undraw_Master_plan_re_jvit.svg" alt="File searching">
+                </div>
+            </div> -->
+        </div>
+    </section>
+    <section class="section" id="contact">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <div class="card">
+                <header class="card-header has-background-warning">
+                  <p class="card-header-title">
+                    Free Consultation
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="field">
+                    <label class="label">Name</label>
+                    <p class="control">
+                      <input class="input" type="text" placeholder="Name">
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label class="label">Phone number</label>
+                    <p class="control">
+                      <input class="input" type="text" placeholder="Phone number">
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label class="label">Email</label>
+                    <p class="control">
+                      <input class="input" type="email" placeholder="Email">
+                    </p>
+                  </div>
+                  <div class="field">
+                    <p class="control">
+                      <button class="button is-warning">
+                        Submit
+                      </button>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column has-text-white pt-6 pl-6">
+                <span class="icon is-size-1 pb-6 my-3 has-text-grey-lighter">
+                    <i class="fas fa-quote-left"></i>
+                </span>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id et dicta, voluptate impedit porro accusamus vitae est nesciunt ullam cupiditate, ea perspiciatis reiciendis dolorum fugit natus libero provident explicabo expedita!
+                </p>
+                <p class="has-text-weight-bold pt-3 is-size-4">Ayush S.</p>
+                <span class="icon is-size-1 pb-6 pr-3 my-3 has-text-grey-lighter is-pulled-right">
+                    <i class="fas fa-quote-right"></i>
+                </span>
+                <a href="https://bulma.io">
+                    <img src="https://bulma.io/images/made-with-bulma--white.png" alt="Made with Bulma" width="128" height="24">
+                </a>
+            </div>
+          </div>
+        </div>
+    </section>
+</body>
+</html>
