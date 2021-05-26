@@ -1,2 +1,1 @@
-# riklaz
-Landing page for IELTSnerd
+# Landing page for IELTSnerd
