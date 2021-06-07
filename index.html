@@ -1,188 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kubi</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./src/styles.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-    <!-- Inspiration https://twitter.com/GoodMarketingHQ/status/1338822201773056000?s=20  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+  <title>Kubi</title>
+  <meta name="description"
+    content="Save time with an online editor that has a simple, intuitive drag &amp; drop interface and 2,000+ ready-made UI components." />
+
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="Shuffle" />
+  <meta property="og:description" content="An online editor for busy developers" />
+  <meta property="og:image" content="https://shuffle.dev/vendor/shuffle/img/brand/open-graph.png" />
+  <meta property="og:url" content="https://shuffle.dev/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shuffle" />
+  <meta name="twitter:description" content="An online editor for busy developers" />
+  <meta name="twitter:image:src" content="https://shuffle.dev/vendor/shuffle/img/brand/open-graph.png" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/vendor/shuffle/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/vendor/shuffle/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/vendor/shuffle/favicon/favicon-16x16.png" />
+
+  <link rel="stylesheet" href="https://shuffle.dev/vendor/bulma/bulma-metis/bulma.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"> -->
+  <link rel="stylesheet" href="./src/styles.css" />
+  <link rel="stylesheet" href="https://shuffle.dev/static/build/css/shuffle-preview.40597892.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <!-- <script src="https://unpkg.com/scrollreveal"></script>     -->
+  <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+    integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Inspiration https://twitter.com/GoodMarketingHQ/status/1338822201773056000?s=20
+    * https://getbedtimestories.com/
+    * https://shuffle.dev/
+    * https://paperpillar.com/
+    * https://mixpanel.com/pricing/
+    -->
 </head>
+
 <body>
-    <section id="hero" class="hero is-fullheight">
-        <div class="hero-head">
-            <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                  <a class="navbar-item" href="https://bulma.io">
-                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-                  </a>
-              
-                  <a role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
-                </div>
-              
-                <div id="navbarBasicExample" class="navbar-menu">
-                  <div class="navbar-start">
-                  </div>
-              
-                  <div class="navbar-end">
-                    <div class="navbar-item">
-                      <div class="buttons">
-                        <a class="button is-outlined is-info is-inverted">
-                          <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-light">
-                          Log in
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </nav>  
+  <div id="cookie-consent" role="dialog" aria-live="polite" aria-label="cookieconsent"
+    aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom">
+    <!--googleoff: all-->
+    <div class="content">
+      <p id="cookieconsent:desc" class="cc-message">
+        We use cookies to ensure you get the best experience on our website.
+        <br />
+        <a aria-label="learn more about cookies" tabindex="0" href="/privacy" target="_blank">Our privacy policy</a>.
+      </p>
+    </div>
+    <div class="cc-compliance">
+      <button aria-label="dismiss cookie message" tabindex="0" class="cc-btn cc-dismiss button is-warning"
+        onclick="enableCookies()">🍪 Gotcha!
+      </button>
+    </div>
+    <!--googleon: all-->
+  </div>
+
+  <button class="button is-primary is-rounded is-size-5 is-hidden is-hidden-mobile has-text-weight-bold slidein-from-top"
+    id="tertiary-header-action"> Try demo </button>
+
+  <section id="headers" data-section-id="1" data-category="headers"
+    class="is-background-contain is-background-no-repeat reveal-superfast" style="
+        background-image: url('https://shuffle.dev/metis-assets/backgrounds/intersect.svg');
+        background-position: top;
+      ">
+    <nav class="navbar is-transparent is-relative py-3" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io" data-config-id="brand">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+          </a>
+
+          <a class="navbar-burger" role="button" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders02"
+            aria-controls="sideMenuHeaders02" aria-expanded="false" aria-label="Toggle navigation">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
         </div>
-        <div class="hero-body">
-            <div class="container">  
-            <div class="columns pt-6">
-                <div class="column mt-6">
-                    <span class="icon has-text-warning">
-                        <i class="far fa-chart-bar fa-lg"></i>
-                    </span>
-                    <h1 class="is-size-1 has-text-white has-text-weight-semibold slidedown">
-                        Improve your IELTS writing scores
-                    </h1>
-                    <p class="has-text-white slideup">
-                        Lost in writing task's dos and donts ? <br> Let NLP help you find gaps and improve with practice!
-                    </p>
-                    <button class="button is-warning mt-4 slideup">
-                        Get started now!
-                    </button>
-                </div>
-                <div class="column mt-6">
-                    <img src="./src/assets/undraw_Master_plan_re_jvit.svg" alt="Lost for ideas!">
-                </div>
-            </div>       
-            </div>
-        </div>
-    </section>
-    <section id="services">
-        <div class="container">
-            <div class="has-text-centered">
-                <h2 class="title is-2">Lost in writing task's dos and donts ?</h2>
-                <h6 class="subtitle has-text-grey is-6">
-                    Let NLP help you find gaps and improve with practice!
-                </h6>
-            </div>
-            <div class="columns pt-6">
-                <div class="column">
-                    <div class="card slidein">
-                        <div class="card-image">
-                            <figure class="image">
-                              <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="Placeholder image">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title is-4">Text statistics</p>
-                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ad nostrum eveniet esse saepe!</div>
-                        </div>
-                        <!-- <footer class="card-footer">
-                            <a href="" class="card-footer-item">See in action!</a>
-                        </footer> -->
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="card slideout">
-                        <div class="card-image">
-                            <figure class="image">
-                              <img src="./src/assets/undraw_fixing_bugs_w7gi.svg" alt="Fixing bugs">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title is-4">Precision nudging</p>
-                            <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                        </div>
-                        <!-- <footer class="card-footer">
-                            <a href="" class="card-footer-item">See in action!</a>
-                        </footer> -->
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="field is-grouped mt-6 is-flex service-buttons">
-                <p class="control"><button class="button is-warning">Start is out!</button></p>
-                <p class="control"><button class="button is-info">Cool cool</button></p>
-            </div>
-            <div class="columns mt-6 pt-5 logos is-relative">
-                <div class="column">
-                    <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="File searching">
-                </div>
-                <div class="column">
-                    <img src="./src/assets/undraw_fixing_bugs_w7gi.svg" alt="File searching">
-                </div>
-                <div class="column">
-                    <img src="./src/assets/undraw_Master_plan_re_jvit.svg" alt="File searching">
-                </div>
-            </div> -->
-        </div>
-    </section>
-    <section class="section" id="contact">
-        <div class="container">
-          <div class="columns">
-            <div class="column">
-              <div class="card">
-                <header class="card-header has-background-warning">
-                  <p class="card-header-title">
-                    Free Consultation
-                  </p>
-                </header>
-                <div class="card-content">
-                  <div class="field">
-                    <label class="label">Name</label>
-                    <p class="control">
-                      <input class="input" type="text" placeholder="Name">
-                    </p>
-                  </div>
-                  <div class="field">
-                    <label class="label">Phone number</label>
-                    <p class="control">
-                      <input class="input" type="text" placeholder="Phone number">
-                    </p>
-                  </div>
-                  <div class="field">
-                    <label class="label">Email</label>
-                    <p class="control">
-                      <input class="input" type="email" placeholder="Email">
-                    </p>
-                  </div>
-                  <div class="field">
-                    <p class="control">
-                      <button class="button is-warning">
-                        Submit
-                      </button>
-                    </p>
-                  </div>
-                </div>
+
+        <div id="navbarLinks" class="navbar-menu">
+          <div class="navbar-start is-centered-absolute is-size-5">
+            <a class="navbar-item mx-3" href="#features">Features</a>
+            <div class="vr"></div>
+            <a class="navbar-item mx-3" href="#pricing">Pricing</a>
+            <div class="vr"></div>
+            <a class="navbar-item mx-3" href="https://ieltsregistration.britishcouncil.org/test-chooser">Book IELTS</a>
+          </div>
+
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <button class="button is-outlined is-primary is-rounded has-text-weight-semibold"
+                  id="primary-header-action">
+                  Log in
+                </button>
+                <!-- TODO: make this style="position: sticky;" after scroll -->
+                <button class="button is-primary is-rounded is-light has-text-weight-semibold"
+                  id="secondary-header-action"> Sign up </button>
               </div>
-            </div>
-            <div class="column has-text-white pt-6 pl-6">
-                <span class="icon is-size-1 pb-6 my-3 has-text-grey-lighter">
-                    <i class="fas fa-quote-left"></i>
-                </span>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id et dicta, voluptate impedit porro accusamus vitae est nesciunt ullam cupiditate, ea perspiciatis reiciendis dolorum fugit natus libero provident explicabo expedita!
-                </p>
-                <p class="has-text-weight-bold pt-3 is-size-4">Ayush S.</p>
-                <span class="icon is-size-1 pb-6 pr-3 my-3 has-text-grey-lighter is-pulled-right">
-                    <i class="fas fa-quote-right"></i>
-                </span>
-                <a href="https://bulma.io">
-                    <img src="https://bulma.io/images/made-with-bulma--white.png" alt="Made with Bulma" width="128" height="24">
-                </a>
             </div>
           </div>
         </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="mx-auto has-text-centered mb-6">
+          <h1 class="title">
+            <span data-config-id="header1">Improve your </span> <br />
+            <span class="has-text-danger" data-config-id="header2">IELTS</span>
+            <span data-config-id="header1" class="txt-rotate p-2" data-toggle="typed"
+              data-options='{"loop": true, "smartBackspace": false, "backDelay": 1000, "backSpeed": 50, "typeSpeed": 100, "showCursor": false, "shuffle": false, "strings": ["reading", "listening", "writing", "speaking"]}'></span>
+            <span data-config-id="header1">scores</span>
+          </h1>
+          <h2 class="subtitle is-size-4" data-config-id="description">
+            <!-- Lost in dos and donts ? <br>  -->
+            Let AI find gaps and improve with targeted learning!
+          </h2>
+          <div class="buttons is-centered">
+            <a class="
+                  button
+                  is-transparent is-primary is-rounded is-size-4
+                  has-text-weight-bold
+                " href="#" data-config-id="primary-hero">Try now for free</a>
+            <a class="button is-danger is-rounded is-light is-size-4" href="https://ieltsregistration.britishcouncil.org/test-chooser" data-config-id="secondary-hero">Book
+              IELTS</a>
+          </div>
+        </div>
+        <div class="is-relative is-max-w-6xl mx-auto reveal-mid">
+          <img src="https://shuffle.dev/metis-assets/elements/pattern.png" alt="pattern background" />
+          <!-- This SVG is from https://codepen.io/Ali_Farooq_/pen/gKOJqx -->
+          <!-- <div class="blob">
+              <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 350">
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+              <path d="M156.4,339.5c31.8-2.5,59.4-26.8,80.2-48.5c28.3-29.5,40.5-47,56.1-85.1c14-34.3,20.7-75.6,2.3-111  c-18.1-34.8-55.7-58-90.4-72.3c-11.7-4.8-24.1-8.8-36.8-11.5l-0.9-0.9l-0.6,0.6c-27.7-5.8-56.6-6-82.4,3c-38.8,13.6-64,48.8-66.8,90.3c-3,43.9,17.8,88.3,33.7,128.8c5.3,13.5,10.4,27.1,14.9,40.9C77.5,309.9,111,343,156.4,339.5z"/>
+              </svg>
+            </div> -->
+
+          <!-- https://www.blobmaker.app/ -->
+          <!-- <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="position: absolute; left: 3%; top: -10%; width: 20vw">
+              <path fill="#A7F0BA" d="M39.1,-64.1C53.1,-59.5,68.9,-54.2,69.7,-43.4C70.6,-32.6,56.5,-16.3,50.2,-3.6C44,9,45.4,18.1,44.4,28.5C43.3,38.9,39.7,50.6,31.8,61.3C24,72,12,81.5,0.9,80C-10.2,78.4,-20.5,65.8,-33.2,57.9C-45.9,50.1,-61,47,-63.5,38.2C-66,29.3,-55.7,14.7,-54.2,0.9C-52.7,-12.9,-60,-25.9,-57.3,-34.4C-54.7,-42.9,-42.1,-47,-30.9,-53.3C-19.7,-59.6,-9.8,-68.1,1.3,-70.4C12.5,-72.7,25,-68.7,39.1,-64.1Z" transform="translate(100 100)" />
+            </svg> -->
+          <div style="
+                position: absolute;
+                top: 9%;
+                left: 14%;
+                width: 72%;
+                height: 66%;
+              ">
+            <img class="is-radius" src="https://shuffle.dev/metis-assets/placeholders/metis-dashboard.png" alt=""
+              data-config-id="image1" onclick="openModal()" />
+          </div>
+        </div>
+
+        <!-- <div
+            class="
+              columns
+              is-mobile is-multiline is-centered is-vcentered
+              has-text-centered
+            "
+          >
+            <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
+              <img
+                src="https://shuffle.dev/metis-assets/logos/brands/tesla.svg"
+                alt=""
+                data-config-id="logo1"
+              />
+            </div>
+            <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
+              <img
+                src="https://shuffle.dev/metis-assets/logos/brands/facebook.svg"
+                alt=""
+                data-config-id="logo2"
+              />
+            </div>
+            <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
+              <img
+                src="https://shuffle.dev/metis-assets/logos/brands/marvel.svg"
+                alt=""
+                data-config-id="logo3"
+              />
+            </div>
+            <div class="mb-4 column is-6-mobile is-4-tablet is-2-desktop">
+              <img
+                src="https://shuffle.dev/metis-assets/logos/brands/nike.svg"
+                alt=""
+                data-config-id="logo4"
+              />
+            </div>
+            <div class="mb-4 column is-hidden-mobile is-4-tablet is-2-desktop">
+              <img
+                src="https://shuffle.dev/metis-assets/logos/brands/airbnb.svg"
+                alt=""
+                data-config-id="logo5"
+              />
+            </div>
+          </div> -->
+      </div>
     </section>
+  </section>
+
+  <!-- https://getwaves.io/ -->
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#0099ff" fill-opacity="1" d="M0,32L80,37.3C160,43,320,53,480,90.7C640,128,800,192,960,186.7C1120,181,1280,107,1360,69.3L1440,32L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+    </svg> -->
+  <div class="modal">
+    <div class="modal-background" onclick="closeModal()"></div>
+    <div class="modal-content is-fullwidth">
+      <p class="image">
+        <img src="https://shuffle.dev/metis-assets/placeholders/metis-dashboard.png" alt="">
+      </p>
+    </div>
+    <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+  </div>
+
+  <div class="is-hidden" id="sideMenuHeaders02">
+    <div class="is-fixed is-top is-right is-fullsize has-background-grey" style="z-index: 1"></div>
+    <nav class="
+          is-fixed is-top is-left is-bottom
+          navbar
+          is-flex is-flex-direction-column
+          pt-4
+          px-4
+        " style="width: 80%; height: 100%; overflow-y: scroll">
+      <div class="mb-5 navbar-brand is-flex is-justify-content-space-between">
+        <a class="navbar-item" href="#" data-config-id="brand">
+          <img src="https://shuffle.dev/metis-assets/logos/metis/metis.svg" alt="IELTSnerd" width="NaN" />
+        </a>
+        <a class="navbar-item" data-toggle="side-menu" data-target="#sideMenuHeaders02"
+          aria-controls="sideMenuHeaders02" aria-label="Close">
+          <svg class="image is-24x24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </a>
+      </div>
+      <div>
+        <nav class="navbar mb-5">
+          <div class="is-fullwidth">
+            <a class="navbar-item mx-3" href="#features">Features</a>
+            <a class="navbar-item mx-3" href="#pricing">Pricing</a>
+            <a class="navbar-item mx-3" href="#book">Book IELTS</a>
+          </div>
+        </nav>
+        <div class="mb-6 pt-5 has-border-top">
+          <a class="button is-block is-primary is-outlined mb-2" href="#" data-config-id="primary-action">Log In</a>
+          <a class="button is-block is-primary" href="#" data-config-id="secondary-action">Sign Up</a>
+        </div>
+      </div>
+      <div class="pl-4 pb-4 mt-auto">
+        <p class="mb-5 is-size-7">
+          <span data-config-id="contact">Get in Touch</span>
+          <a href="#" data-config-id="email">info@example.com</a>
+        </p>
+        <a href="#"><img src="https://shuffle.dev/metis-assets/icons/facebook-blue.svg" alt="" /></a><a href="#"><img
+            src="https://shuffle.dev/metis-assets/icons/twitter-blue.svg" alt="" /></a><a href="#"><img
+            src="https://shuffle.dev/metis-assets/icons/instagram-blue.svg" alt="" /></a>
+      </div>
+    </nav>
+  </div>
+
+  <section id="statistics" data-section-id="2" class="section reveal-mid is-usp has-background is-medium mb-6">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          <div class="card is-usp"> 
+            <img role="presentation" src="https://getbedtimestories.com/assets/images/icons/family-c0f52dde.svg?1588602936">
+            <h3 class="title is-4 is-spaced">3.5+ Million test takers</h3>
+            <p class="subtitle is-5">
+              The average band score of IELTS test takers without preparation is <strong>6.53</strong> which is less than the minimum required for both, admission to universities and immigration to countries like Canada, Australia, etc. 
+            </p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card is-usp"> 
+            <img role="presentation"
+              src="https://getbedtimestories.com/assets/images/icons/bookshelf-b83dab6e.svg?1588602936">
+            <h3 class="title is-4 is-spaced">Passive learning isn't enough !</h3>
+            <p class="subtitle is-5"> 
+              Watching videos and webinar can only take you so far. Giving mock tests over and over again is only practicing the same mistakes repeatedly.
+            </p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="card is-usp"> 
+            <img role="presentation" src="https://getbedtimestories.com/assets/images/icons/book-96ff6ee1.svg?1588602936">
+            <h3 class="title is-4 is-spaced">We diagnose and fix it</h3>
+            <p class="subtitle is-5"> 
+              <!-- We know that you already have the core skills to read, write, listen and speak ! You just need to learn the IELTS way to do it efficiently.  -->
+              Artifcial + Human Intelligence will not only fix your weaknesses, but also reinforce your strengths. Using guided learning experiences tailored as per your needs, AI teaches you to get highest scores in shortest amount of time.
+              <!-- , it will teach you alot more than just basic books or youtube videos. -->
+              <!-- We will help you achieve that dream with our secret sauce : blend of AI + Human Intelligence !  -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" data-section-id="3" data-category="features reveal" class="section reveal-mid my-6">
+    <div class="container">
+      <div class="columns py-3 is-centered is-vcentered">
+        <div class="column is-6 pr-6 slidein">
+          <div class="mb-6">
+            <!-- <span class="tag is-info is-rounded" data-config-id="badge">Lorem ipsum</span> -->
+            <h2 class="mt-4 title is-size-3" data-config-id="01_header">
+              Key Features
+            </h2>
+          </div>
+          <div class="is-flex mb-6">
+            <div class="mr-4 has-text-primary">
+              <svg class="image is-32x32" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h1 class="title is-size-3 is-spaced mb-3" data-config-id="header1">
+                Personalized learning
+              </h1>
+              <p class="subtitle is-4" data-config-id="desc1">
+                
+              </p>
+            </div>
+          </div>
+          <div class="is-flex mb-6 ">
+            <div class="mr-4 has-text-primary">
+              <svg class="image is-32x32" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <h1 class="title is-size-3 is-spaced mb-3" data-config-id="header2">
+                Artifical Intelligence
+              </h1>
+              <p class="subtitle is-4" data-config-id="desc2">
+                We use the latest in natural language processing (NLP) and automated speech recognition (ASR) to get even deeper insights into your skills level. You can access your skills report anytime from the dashboard!
+              </p>
+            </div>
+          </div>
+          <div class="is-flex">
+            <div class="mr-4 has-text-primary">
+              <svg class="image is-32x32" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <h1 class="title is-size-3 is-spaced mb-3" data-config-id="header3">
+                1:1 tutoring
+              </h1>
+              <p class="subtitle is-4" data-config-id="desc3">
+                Our <span class="has-text-info">A.I.</span> and <span class="has-text-danger">IELTS certified</span> teachers work together to decide what is best for you. However, in case you need 1:1 help, our teachers are here when you need it.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="column is-6 slideout">
+          <div class="p-6" style="position: relative">
+            <img class="
+                  is-relative is-radius is-fullwidth is-object-cover is-radius
+                " style="height: auto; max-height: 600px; z-index: 10" src="./src/assets/undraw_fixing_bugs_w7gi.svg"
+              alt="" data-config-id="01_image" />
+
+            <img class="is-hidden-mobile is-absolute is-top is-left"
+              src="https://shuffle.dev/metis-assets/elements/blob-tear.svg" alt="" />
+
+            <img class="is-hidden-mobile is-absolute is-bottom is-right"
+              src="https://shuffle.dev/metis-assets/elements/blob-tear.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-6 reveal-mid" id="rock">
+    <div class="hero is-warning py-6">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-2 slidein">
+            <p class="image">
+              <!-- <img src="https://shuffle.dev/metis-assets/placeholders/metis-dashboard.png" alt=""> -->
+              <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="Placeholder image" />
+            </p>
+          </div>
+          <div class="is-3 slideout">
+            <!-- <h1 class="title">Rock your IELTS!</h1> -->
+            <h1 class="title">Lost in dos and donts ?</h1>
+            <p class="subtitle is-size-4 has-text-weight-normal">
+              Not only does the traditional way lacks the idea of tackling IELTS, they also fail considerably in coaching a student based on their calibre. Our innovative approach decides the models, excercises, practice sets, number and type of sessions required for a student based on their specific needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-section-id="4" class="reveal-mid my-6">
+    <div class="container">
+      <div class="tile is-ancestor">
+        <div class="tile is-vertical is-parent">
+          <div class="tile is-child">
+            <div class="card slidein">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://shuffle.dev/vendor/shuffle/img/features/online_compilation.svg"
+                    alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title">Writing</p>
+                    <p class="subtitle is-6">Most difficult of all task to get a high score on</p>
+                  </div>
+                </div>
+
+                <div class="content is-size-4">
+                  Transferring your thoughts in a structured way isn't enough. One needs to show use of complex grammar, lexical diversity and hundred other things. Our AI assesses your writing style and teaches you to break bad habits and build new ones.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tile is-child">
+            <div class="card slidein">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://shuffle.dev/vendor/shuffle/img/features/online_compilation.svg"
+                    alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title">Speaking</p>
+                    <p class="subtitle is-6">Another difficult task</p>
+                  </div>
+                </div>
+
+                <div class="content is-size-4">
+                  Once we assess your speaking level. We provide self-paced conversation modules. This improves confidence and teaches you the art of discourse.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tile is-vertical is-parent">
+          <div class="tile is-child">
+            <div class="card slideout">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://shuffle.dev/vendor/shuffle/img/features/online_compilation.svg"
+                    alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title">Reading</p>
+                    <p class="subtitle is-6">Tests comprehension skills</p>
+                  </div>
+                </div>
+
+                <div class="content is-size-4">
+                  Candidate needs to understand the text beyond just fact retrieval. This requires sound reading comprehension skills and the vocabulary required to understand it.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tile is-child">
+            <div class="card slideout">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="https://shuffle.dev/vendor/shuffle/img/features/online_compilation.svg"
+                    alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title">Listening</p>
+                    <p class="subtitle is-6">Easy to score high but full marks is tricky</p>
+                  </div>
+                </div>
+
+                <div class="content is-size-4">
+                  We train your ear to listen to the types of information asked in IELTS tests. Different accents, speed, pitch and cultural dialects are some of the ways listening tests will test your ability. e.g. <em>know what corner of 5th and 8th means ?</em>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+<!-- 
+  <section data-section-id="5" id="services reveal-mid my-6">
+    <div class="container">
+      <div class="has-text-centered">
+        <h2 class="title is-2">Lost in writing task's dos and donts ?</h2>
+        <h6 class="subtitle is-6 is-size-5">
+          Let NLP help you find gaps and improve with practice!
+        </h6>
+      </div>
+      <div class="columns pt-6">
+        <div class="column">
+          <div class="card slidein">
+            <div class="card-image">
+              <figure class="image">
+                <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="Placeholder image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Text statistics</p>
+              <div class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Officiis ad nostrum eveniet esse saepe!
+              </div>
+            </div>
+            <footer class="card-footer">
+                <a href="" class="card-footer-item">See in action!</a>
+            </footer>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card slideout">
+            <div class="card-image">
+              <figure class="image">
+                <img src="./src/assets/undraw_fixing_bugs_w7gi.svg" alt="Fixing bugs" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <p class="title is-4">Precision nudging</p>
+              <div class="content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </div>
+            </div>
+            <footer class="card-footer">
+                <a href="" class="card-footer-item">See in action!</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="field is-grouped mt-6 is-flex service-buttons">
+            <p class="control"><button class="button is-warning">Start is out!</button></p>
+            <p class="control"><button class="button is-info">Cool cool</button></p>
+        </div>
+        <div class="columns mt-6 pt-5 logos is-relative">
+            <div class="column">
+                <img src="./src/assets/undraw_File_searching_re_3evy.svg" alt="File searching">
+            </div>
+            <div class="column">
+                <img src="./src/assets/undraw_fixing_bugs_w7gi.svg" alt="File searching">
+            </div>
+            <div class="column">
+                <img src="./src/assets/undraw_Master_plan_re_jvit.svg" alt="File searching">
+            </div>
+        </div>
+    </div>
+  </section> -->
+
+  <footer data-section-id="6" class="footer section is-medium reveal-mid my-6">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-5 is-4-widescreen">
+          <div class="summary">
+            <a class="brand" href="/">
+              <div class="brand-icon">
+                <img alt="Bedtime Stories" role="presentation"
+                  src="https://getbedtimestories.com/assets/images/app-icon-df78e144.png?1588602937" />
+              </div>
+              <div class="brand-content">
+                <div class="brand-title">IELTSnerd</div>
+                <div class="brand-subtitle">
+                  Using AI to help you rock your IELTS
+                </div>
+              </div>
+            </a>
+            <hr class="spacer is-1" />
+            <p>
+              The AI based app for people who want to identify their weakness and improve them. Because rote memorization &amp; passive learning has failed them!
+            </p>
+            <hr class="spacer is-1" />
+            <a href="http://www.singpaledulabs.ai" target="_blank">
+              © Singpal Edu AI Labs</a>
+          </div>
+        </div>
+        <div class="column is-7 is-6-widescreen is-offset-2-widescreen">
+          <div class="columns">
+            <div class="column is-4">
+              <div class="menu">
+                <p class="menu-label">Product</p>
+                <ul class="menu-list">
+                  <li><a href="/">Home</a></li>
+                  <li>
+                    <a href="/school">Storytelling School
+                    </a>
+                  </li>
+                  <li><a href="/library">Library</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="menu">
+                <p class="menu-label">Company</p>
+                <ul class="menu-list">
+                  <li>
+                    <a href="https://medium.com/bedtime-stories-blog">Blog</a>
+                  </li>
+                  <li><a href="/about-us">About Us</a></li>
+                  <li><a href="/about-us#downloads">Press Kit</a></li>
+                  <li><a href="/imprint">Imprint</a></li>
+                  <li><a href="/privacy">Privacy</a></li>
+                  <li><a href="/terms">Terms</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div class="menu">
+                <p class="menu-label">Connect with us</p>
+                <ul class="menu-list">
+                  <li>
+                    <a href="https://facebook.com/getbedtimestories" target="_blank">
+                      <img role="presentation"
+                        src="https://getbedtimestories.com/assets/images/icons/social/facebook-f18752b0.svg?1588602937" />Facebook</a>
+                  </li>
+                  <li>
+                    <a href="https://messenger.com/t/1180441035357755" target="_blank">
+                      <img role="presentation"
+                        src="https://getbedtimestories.com/assets/images/icons/social/messenger-d2bb944d.svg?1588602937" />Messenger</a>
+                  </li>
+                  <li>
+                    <a href="https://instagram.com/getbedtimestories" target="_blank">
+                      <img role="presentation"
+                        src="https://getbedtimestories.com/assets/images/icons/social/instagram-89cb51bf.svg?1588602937" />Instagram</a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/getbedtimestory" target="_blank">
+                      <img role="presentation"
+                        src="https://getbedtimestories.com/assets/images/icons/social/twitter-42c2f562.svg?1588602937" />Twitter</a>
+                  </li>
+                  <li>
+                    <a href="https://medium.com/bedtime-stories-blog" target="_blank">
+                      <img role="presentation"
+                        src="https://getbedtimestories.com/assets/images/icons/social/medium-2fc70afa.svg?1588602937" />Medium</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // var links = document.getElementsByTagName("a");
+    // for (var i = 0; i < links.length; i += 1) {
+    //   if (!links[i].classList.contains("bs-link")) {
+    //     links[i].addEventListener("click", function (e) {
+    //       e.preventDefault();
+    //     });
+    //   }
+    // }
+
+    var forms = document.getElementsByTagName("form");
+    for (var i = 0; i < forms.length; i += 1) {
+      forms[i].addEventListener(
+        "submit",
+        function (e) {
+          e.preventDefault();
+        },
+        true
+      );
+    }
+    // Burger menus
+    document.addEventListener("DOMContentLoaded", function () {
+      // open/close
+      const toggler = document.querySelectorAll('[data-toggle="side-menu"]');
+
+      if (toggler.length) {
+        for (var i = 0; i < toggler.length; i++) {
+          const target = toggler[i].getAttribute("data-target");
+
+          if (target.length) {
+            toggler[i].addEventListener("click", function (event) {
+              event.preventDefault();
+              const menu = document.querySelector(target);
+
+              if (menu) {
+                menu.classList.toggle("is-hidden");
+              }
+            });
+          }
+        }
+      }
+    });
+
+    const modal = document.getElementsByClassName('modal')[0];
+    function openModal() {
+      modal.classList.toggle('is-active')
+    }
+
+    function closeModal() {
+      modal.classList.toggle('is-active')
+    }
+
+    function runAnimations() {
+      "function" == typeof ScrollReveal &&
+        (ScrollReveal().reveal(".reveal-superfast", { delay: 25 }),
+          ScrollReveal().reveal(".reveal-fast", { delay: 150 }),
+          ScrollReveal().reveal(".reveal-mid", {
+            delay: 200,
+            duration: 1150,
+            origin: "bottom",
+            distance: "80px",
+          }),
+          ScrollReveal().reveal(".reveal", {
+            delay: 200,
+            duration: 1350,
+            origin: "bottom",
+            distance: "80px",
+          }),
+          ScrollReveal().reveal(".reveal-slow", {
+            delay: 400,
+            duration: 1750,
+          }));
+    }
+
+    function ready(fn) {
+      if (document.readyState != "loading") {
+        fn();
+      } else if (document.addEventListener) {
+        document.addEventListener("DOMContentLoaded", fn);
+      } else {
+        document.attachEvent("onreadystatechange", function () {
+          if (document.readyState != "loading") fn();
+        });
+      }
+    }
+
+    function scrollFunction() {
+      var el = document.getElementById("tertiary-header-action")
+      if (document.documentElement.scrollTop > 400) {
+        el.classList.remove("is-hidden");
+      } else {
+        el.classList.add("is-hidden");
+      }
+    }
+
+    function checkCookies() {
+      console.log(Boolean(localStorage.getItem('has_cookie_consent')));
+      if (!Boolean(localStorage.getItem('has_cookie_consent'))) {
+        var el = document.getElementById("cookie-consent")
+        el.style.visibility = "visible"
+      }
+    }
+
+    function enableCookies() {
+      localStorage.setItem('has_cookie_consent', true)
+      var el = document.getElementById("cookie-consent")
+      el.style.visibility = "hidden"
+    }
+
+    window.addEventListener("scroll", scrollFunction, { passive: true });
+
+    ready(() => {
+      setTimeout(function () { document.body.style.visibility = "visible"; }, 3000)
+      checkCookies();
+      runAnimations();
+
+      var e = document.getElementsByClassName("txt-rotate")[0];
+      if (e && e.getAttribute("data-options")) {
+        const t = JSON.parse(e.getAttribute("data-options"));
+        t.preStringTyped = (e, t) => {
+          const a = t.el;
+          e = t.strings[e];
+          "speaking" === e
+            ? (a.classList.remove(
+              "wrap-listening",
+              "wrap-writing",
+              "wrap-reading"
+            ),
+              a.classList.add("wrap-speaking"))
+            : "listening" === e
+              ? (a.classList.remove(
+                "wrap-speaking",
+                "wrap-writing",
+                "wrap-reading"
+              ),
+                a.classList.add("wrap-listening"))
+              : "writing" === e
+                ? (a.classList.remove(
+                  "wrap-speaking",
+                  "wrap-listening",
+                  "wrap-reading"
+                ),
+                  a.classList.add("wrap-writing"))
+                : "reading" === e
+                  ? (a.classList.remove(
+                    "wrap-speaking",
+                    "wrap-writing",
+                    "wrap-listening"
+                  ),
+                    a.classList.add("wrap-reading"))
+                  : a.classList.remove(
+                    "wrap-speaking",
+                    "wrap-writing",
+                    "wrap-listening",
+                    "wrap-reading"
+                  );
+        };
+        new Typed('[data-toggle="typed"]', t);
+      }
+    });
+  </script>
 </body>
+
 </html>
